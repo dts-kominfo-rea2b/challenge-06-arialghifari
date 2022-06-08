@@ -38,30 +38,6 @@ const bacaData = (fnCallback) => {
       });
     });
   });
-
-  /* fs.readFile(file1, { encoding: "utf8" }, (err, data) => {
-    const arrayOfObject = JSON.parse(data);
-    const modifiedMessage = arrayOfObject.message.split(" ")[1];
-    arr.push(modifiedMessage);
-
-    fs.readFile(file2, { encoding: "utf8" }, (err, data) => {
-      const arrayOfObject = JSON.parse(data);
-      const modifiedMessage = arrayOfObject[0].message.split(" ")[1];
-      arr.push(modifiedMessage);
-
-      fs.readFile(file3, { encoding: "utf8" }, (err, data) => {
-        const arrayOfObject = JSON.parse(data);
-        const modifiedMessage = arrayOfObject[0].data.message.split(" ")[1];
-        arr.push(modifiedMessage);
-
-        fnCallback(err, arr);
-      });
-    });
-  }); */
-
-  // const modifiedMessage = arrayOfObject.message.split(" ")[1];
-  // const modifiedMessage = arrayOfObject[0].message.split(" ")[1];
-  // const modifiedMessage = arrayOfObject[0].data.message.split(" ")[1];
 };
 
 // ! JANGAN DIMODIFIKASI
