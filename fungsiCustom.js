@@ -18,7 +18,51 @@ let modifyFile3 = (val) => {
 
 // TODO: Kerjakan bacaData
 // gunakan variabel file1, file2, dan file3
-const bacaData = null;
+const bacaData = (fnCallback) => {
+  const fs = require("fs");
+  let messageArray = [];
+
+  fs.readFile(file1, { encoding: "utf8" }, (err, data) => {
+    if (err) return fnCallback(err, null);
+    messageArray.push(JSON.parse(data).message.split(" ")[1]);
+
+    fs.readFile(file2, { encoding: "utf8" }, (err, data) => {
+      if (err) return fnCallback(err, null);
+      messageArray.push(JSON.parse(data)[0].message.split(" ")[1]);
+
+      fs.readFile(file3, { encoding: "utf8" }, (err, data) => {
+        if (err) return fnCallback(err, null);
+        messageArray.push(JSON.parse(data)[0].data.message.split(" ")[1]);
+
+        return fnCallback(err, messageArray);
+      });
+    });
+  });
+
+  /* fs.readFile(file1, { encoding: "utf8" }, (err, data) => {
+    const arrayOfObject = JSON.parse(data);
+    const modifiedMessage = arrayOfObject.message.split(" ")[1];
+    arr.push(modifiedMessage);
+
+    fs.readFile(file2, { encoding: "utf8" }, (err, data) => {
+      const arrayOfObject = JSON.parse(data);
+      const modifiedMessage = arrayOfObject[0].message.split(" ")[1];
+      arr.push(modifiedMessage);
+
+      fs.readFile(file3, { encoding: "utf8" }, (err, data) => {
+        const arrayOfObject = JSON.parse(data);
+        const modifiedMessage = arrayOfObject[0].data.message.split(" ")[1];
+        arr.push(modifiedMessage);
+
+        fnCallback(err, arr);
+      });
+    });
+  }); */
+
+  // const modifiedMessage = arrayOfObject.message.split(" ")[1];
+  // const modifiedMessage = arrayOfObject[0].message.split(" ")[1];
+  // const modifiedMessage = arrayOfObject[0].data.message.split(" ")[1];
+};
 
 // ! JANGAN DIMODIFIKASI
 module.exports = {
